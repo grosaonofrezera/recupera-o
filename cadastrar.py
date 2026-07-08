@@ -1,46 +1,40 @@
-import json
+from auxilio_json import ler_dados, salvar_dados
 
 def cadastrar_aluno():
     while True:
-        nome = input("Nome do aluno: ").strip().lower()
+        nome = input("nome do aluno: ").strip().lower()
 
         if nome == "":
-            print("Campo vazio.")
+            print("campo vazio")
             continue
 
         if not nome.isalpha():
-            print("Nome inválido.")
+            print("nome inválido")
             continue
 
         break
 
     while True:
-        print("Opções de turma:")
+        print("opções de turma:")
         print("1 a 9")
 
-        turma = input("Turma: ")
+        turma = input("turma: ")
 
-        if turma in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+        if turma in ["1","2","3","4","5","6","7","8","9"]:
+            print("turma cadastrada!")
             break
         else:
-            print("Turma inválida.")
+            print("turma inválida")
 
     aluno = {
         "nome": nome,
         "turma": turma
     }
 
-    try:
-        with open("dados.json", "r", encoding="utf-8") as arquivo:
-            alunos = json.load(arquivo)
-    except FileNotFoundError:
-        alunos = []
+    alunos = ler_dados()
 
     alunos.append(aluno)
 
-    with open("dados.json", "w", encoding="utf-8") as arquivo:
-        json.dump(alunos, arquivo, ensure_ascii=False, indent=4)
+    salvar_dados(alunos)
 
     print("Aluno cadastrado com sucesso!")
-
-cadastrar_aluno()
