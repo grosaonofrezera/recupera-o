@@ -10,7 +10,7 @@ def menu():
         print("2 - Listar alunos")
         print("3 - Editar aluno")
         print("4 - Remover aluno")
-        print("5 - Sair")
+        print("0 - Sair")
 
         opcao = input("Escolha uma opção: ")
 
