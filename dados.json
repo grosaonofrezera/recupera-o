@@ -1,9 +1,6 @@
-{
-    "nome": "Ana",
-    "idade": 28,
-    "ativo": true,
-    "habilidades": [
-        "Python",
-        "JavaScript"
-    ]
-}
+[
+    {
+        "nome": "g",
+        "turma": "6"
+    }
+]
