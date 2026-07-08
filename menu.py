@@ -1,5 +1,6 @@
 from cadastrar import cadastrar_aluno
 from listar import listar_alunos
+from editar import editar_aluno
 
 def menu():
 
