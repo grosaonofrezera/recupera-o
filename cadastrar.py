@@ -14,27 +14,50 @@ def cadastrar_aluno():
 
         break
 
+
     while True:
-        print("opções de turma:")
-        print("1 a 9")
+        print = input("qual sua idade:")
 
-        turma = input("turma: ")
+        if idade.isdigit():
+            idade = int(idade)
 
-        if turma in ["1","2","3","4","5","6","7","8","9"]:
-            print("turma cadastrada!")
-            break
+            if idade > 0 and idade <= 120:
+                break
+            else:
+                print("idade inválida")
         else:
-            print("turma inválida")
+            print("idade inválida")
 
-    aluno = {
-        "nome": nome,
-        "turma": turma
-    }
 
-    alunos = ler_dados()
 
-    alunos.append(aluno)
+        while True:
+            print("opções de turma:")
+            print("1 a 9")
 
-    salvar_dados(alunos)
+            turma = input("turma: ")
 
-    print("Aluno cadastrado com sucesso!")
+            if turma in ["1","2","3","4","5","6","7","8","9"]:
+                print("turma cadastrada!")
+                break
+            else:
+                print("turma inválida")
+
+        alunos = ler_dados()
+
+        if len(alunos) == 0:
+            matricula = 1
+        else:
+            matricula = alunos[-1]["matricula"] + 1
+
+        aluno = {
+            "matricula": matricula,
+            "nome": nome,
+            "turma": turma
+        }
+
+        alunos.append(aluno)
+
+        salvar_dados(alunos)
+
+        print("Aluno cadastrado com sucesso!")
+        print(f"Matrícula do aluno: {matricula}")

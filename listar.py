@@ -1,5 +1,5 @@
 from auxilio_json import ler_dados
-
+from cadastrar import cadastrar_aluno
 def listar_alunos():
 
     dados = ler_dados()
@@ -13,6 +13,7 @@ def listar_alunos():
 
         for aluno in dados:
 
+            print("matricula:", aluno["matricula"])
             print("nome:", aluno["nome"])
             print("turma:", aluno["turma"])
             print()
