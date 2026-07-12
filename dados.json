@@ -1,7 +1,22 @@
 [
     {
-        "matricula": 1,
-        "nome": "gabriel",
-        "turma": "6"
+        "matricula": 2,
+        "nome": "bruno",
+        "idade": 24,
+        "turma": "8",
+        "notas": [
+            10.0,
+            10.0
+        ]
+    },
+    {
+        "matricula": 3,
+        "nome": "gabrieldograu",
+        "idade": 15,
+        "turma": "9",
+        "notas": [
+            6.0,
+            7.0
+        ]
     }
 ]

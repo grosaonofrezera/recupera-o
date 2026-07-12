@@ -1,63 +1,93 @@
 from auxilio_json import ler_dados, salvar_dados
 
+
 def cadastrar_aluno():
+
     while True:
-        nome = input("nome do aluno: ").strip().lower()
+        nome = input("Nome do aluno: ").strip().lower()
 
         if nome == "":
-            print("campo vazio")
+            print("Campo vazio")
             continue
 
-        if not nome.isalpha():
-            print("nome inválido")
+        if not nome.replace(" ", "").isalpha():
+            print("Nome inválido")
             continue
 
         break
 
 
     while True:
-        print = input("qual sua idade:")
+        idade = input("Qual sua idade: ")
 
         if idade.isdigit():
             idade = int(idade)
 
-            if idade > 0 and idade <= 120:
+            if 0 < idade <= 120:
                 break
-            else:
-                print("idade inválida")
-        else:
-            print("idade inválida")
+
+        print("Idade inválida")
 
 
+    while True:
+        print("Opções de turma: 1 a 9")
 
-        while True:
-            print("opções de turma:")
-            print("1 a 9")
+        turma = input("Turma: ")
 
-            turma = input("turma: ")
+        if turma in ["1","2","3","4","5","6","7","8","9"]:
+            break
 
-            if turma in ["1","2","3","4","5","6","7","8","9"]:
-                print("turma cadastrada!")
+        print("Turma inválida")
+
+
+    while True:
+        try:
+            nota1 = float(input("Nota 1 (0-10): "))
+
+            if 0 <= nota1 <= 10:
                 break
-            else:
-                print("turma inválida")
 
-        alunos = ler_dados()
+            print("Nota inválida")
 
-        if len(alunos) == 0:
-            matricula = 1
-        else:
-            matricula = alunos[-1]["matricula"] + 1
+        except:
+            print("Digite um número válido")
 
-        aluno = {
-            "matricula": matricula,
-            "nome": nome,
-            "turma": turma
-        }
 
-        alunos.append(aluno)
+    while True:
+        try:
+            nota2 = float(input("Nota 2 (0-10): "))
 
-        salvar_dados(alunos)
+            if 0 <= nota2 <= 10:
+                break
 
-        print("Aluno cadastrado com sucesso!")
-        print(f"Matrícula do aluno: {matricula}")
+            print("Nota inválida")
+
+        except:
+            print("Digite um número válido")
+
+
+    alunos = ler_dados()
+
+
+    if len(alunos) == 0:
+        matricula = 1
+    else:
+        matricula = alunos[-1]["matricula"] + 1
+
+
+    aluno = {
+        "matricula": matricula,
+        "nome": nome,
+        "idade": idade,
+        "turma": turma,
+        "notas": [nota1, nota2]
+    }
+
+
+    alunos.append(aluno)
+
+    salvar_dados(alunos)
+
+
+    print("Aluno cadastrado com sucesso!")
+    print(f"Matrícula: {matricula}")

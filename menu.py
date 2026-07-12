@@ -1,6 +1,8 @@
 from cadastrar import cadastrar_aluno
 from listar import listar_alunos
 from editar import editar_aluno
+from listar_notas import listar_notas
+from remover_aluno import remover_aluno
 
 def menu():
 
@@ -11,6 +13,7 @@ def menu():
         print("2 - Listar alunos")
         print("3 - Editar aluno")
         print("4 - Remover aluno")
+        print("5 - Listar notas")
         print("0 - Sair")
 
         opcao = input("Escolha uma opção: ")
@@ -28,6 +31,9 @@ def menu():
             remover_aluno()
 
         elif opcao == "5":
+            listar_notas()
+
+        elif opcao == "0":
             print("Programa encerrado.")
             break
 
